@@ -6,7 +6,7 @@ import { Component, Input, OnChanges } from '@angular/core';
   styleUrls: ['./indicator.component.scss'],
 })
 export class IndicatorComponent implements OnChanges {
-  @Input() indexNumber!: number;
+  @Input() id!: number;
   @Input() passwordValue: string = '';
 
   isEmpty: boolean = true;

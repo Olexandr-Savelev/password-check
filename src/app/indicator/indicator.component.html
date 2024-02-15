@@ -2,8 +2,8 @@
   class="indicator"
   [ngClass]="{
     red: !isEmpty && !isLongEnought,
-    easy: indexNumber === 1 && isEasy,
-    medium: (indexNumber === 1 || indexNumber === 2) && isMedium,
+    easy: id === 1 && isEasy,
+    medium: (id === 1 || id === 2) && isMedium,
     strong: isStrong
   }"
 ></div>
