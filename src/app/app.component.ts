@@ -38,8 +38,6 @@ export class AppComponent {
     const { target } = event;
     const passwordValue = (target as HTMLInputElement).value;
 
-    console.log(passwordValue.length);
-
     if (passwordValue.length !== 0) {
       this.isEmpty = false;
     } else {
