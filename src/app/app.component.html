@@ -5,7 +5,6 @@
       class="password-input"
       [type]="isHide ? 'password' : 'text'"
       placeholder="Enter your password"
-      [(ngModel)]="passwordValue"
       (input)="onPasswordChange($event)"
     />
     <button class="btn" (click)="togglePasswordVisibility()">
@@ -37,8 +36,23 @@
     </button>
   </div>
   <div class="indicators-wrapper">
-    <app-indicator [id]="1" [passwordValue]="passwordValue"></app-indicator>
-    <app-indicator [id]="2" [passwordValue]="passwordValue"></app-indicator>
-    <app-indicator [id]="3" [passwordValue]="passwordValue"></app-indicator>
+    <app-indicator
+      [id]="1"
+      [passwordStrength]="passwordStrength"
+      [isEmpty]="isEmpty"
+      [isLongEnough]="isLongEnough"
+    ></app-indicator>
+    <app-indicator
+      [id]="2"
+      [passwordStrength]="passwordStrength"
+      [isEmpty]="isEmpty"
+      [isLongEnough]="isLongEnough"
+    ></app-indicator>
+    <app-indicator
+      [id]="3"
+      [passwordStrength]="passwordStrength"
+      [isEmpty]="isEmpty"
+      [isLongEnough]="isLongEnough"
+    ></app-indicator>
   </div>
 </div>

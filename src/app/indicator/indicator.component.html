@@ -1,9 +1,9 @@
 <div
   class="indicator"
   [ngClass]="{
-    red: !isEmpty && !isLongEnought,
-    easy: id === 1 && isEasy,
-    medium: (id === 1 || id === 2) && isMedium,
-    strong: isStrong
+    red: !isEmpty && !isLongEnough,
+    easy: id === 1 && passwordStrength === 'Easy',
+    medium: (id === 1 || id === 2) && passwordStrength === 'Medium',
+    strong: passwordStrength === 'Strong'
   }"
 ></div>
