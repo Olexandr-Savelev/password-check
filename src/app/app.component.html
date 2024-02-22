@@ -5,7 +5,7 @@
       class="password-input"
       [type]="isHide ? 'password' : 'text'"
       placeholder="Enter your password"
-      (input)="onPasswordChange($event)"
+      (input)="onChange($event)"
     />
     <button class="btn" (click)="togglePasswordVisibility()">
       <svg
@@ -36,23 +36,8 @@
     </button>
   </div>
   <div class="indicators-wrapper">
-    <app-indicator
-      [id]="1"
-      [passwordStrength]="passwordStrength"
-      [isEmpty]="isEmpty"
-      [isLongEnough]="isLongEnough"
-    ></app-indicator>
-    <app-indicator
-      [id]="2"
-      [passwordStrength]="passwordStrength"
-      [isEmpty]="isEmpty"
-      [isLongEnough]="isLongEnough"
-    ></app-indicator>
-    <app-indicator
-      [id]="3"
-      [passwordStrength]="passwordStrength"
-      [isEmpty]="isEmpty"
-      [isLongEnough]="isLongEnough"
-    ></app-indicator>
+    <app-indicator [id]="1"></app-indicator>
+    <app-indicator [id]="2"></app-indicator>
+    <app-indicator [id]="3"></app-indicator>
   </div>
 </div>
