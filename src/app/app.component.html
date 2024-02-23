@@ -1,5 +1,7 @@
 <div class="container">
   <h1 class="heading">Test password strength</h1>
-  <app-password-input></app-password-input>
+  <form [formGroup]="form">
+    <app-password-input [formControlName]="'password'"></app-password-input>
+  </form>
   <app-password-indicators></app-password-indicators>
 </div>

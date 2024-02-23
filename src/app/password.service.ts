@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
-interface PasswordState {
+export interface PasswordState {
   isEmpty: boolean;
   isLongEnough: boolean;
   passwordStrength: string;
@@ -11,11 +11,15 @@ interface PasswordState {
   providedIn: 'root',
 })
 export class PasswordService {
-  passwordState = new BehaviorSubject<PasswordState>({
+  private _passwordState = new BehaviorSubject<PasswordState>({
     isEmpty: true,
     isLongEnough: false,
     passwordStrength: '',
   });
+
+  get passwordState(): Observable<PasswordState> {
+    return this._passwordState.asObservable();
+  }
 
   checkPasswordCharacters(value: string) {
     const digitsPattern = /\d/;
@@ -54,6 +58,6 @@ export class PasswordService {
         passwordStrength = 'Easy';
       }
     }
-    this.passwordState.next({ isEmpty, isLongEnough, passwordStrength });
+    this._passwordState.next({ isEmpty, isLongEnough, passwordStrength });
   }
 }

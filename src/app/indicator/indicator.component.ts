@@ -1,30 +1,12 @@
-import { Component, Input, OnDestroy } from '@angular/core';
-import { PasswordService } from '../password.service';
-import { Subscription } from 'rxjs';
+import { Component, Input } from '@angular/core';
+import { PasswordState } from '../password.service';
 
 @Component({
   selector: 'app-indicator',
   templateUrl: './indicator.component.html',
   styleUrls: ['./indicator.component.scss'],
 })
-export class IndicatorComponent implements OnDestroy {
+export class IndicatorComponent {
   @Input() id!: number;
-  passwordStrength!: string;
-  isLongEnough!: boolean;
-  isEmpty!: boolean;
-  passwordSubscription = new Subscription();
-
-  constructor(private passwordService: PasswordService) {
-    this.passwordSubscription = this.passwordService.passwordState.subscribe(
-      (state) => {
-        this.passwordStrength = state.passwordStrength;
-        this.isLongEnough = state.isLongEnough;
-        this.isEmpty = state.isEmpty;
-      }
-    );
-  }
-
-  ngOnDestroy(): void {
-    this.passwordSubscription.unsubscribe();
-  }
+  @Input() passwordState!: PasswordState;
 }
